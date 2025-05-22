@@ -1,5 +1,12 @@
 package Excepciones;
 
-public class ExceptionEmpty {
-    
+public class ExceptionEmpty extends Exception {
+    public ExceptionEmpty(String msg) {
+        super(msg);
+    }
+
+    public ExceptionEmpty() {
+        super("Esta vacio.");
+    }
 }
+

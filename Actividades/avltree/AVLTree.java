@@ -17,7 +17,6 @@ public class AVLTree<E extends Comparable<E>> extends BSTree<E> {
         }
     }
 
-    @SuppressWarnings("unused")
     private boolean height;  // indicador de cambio de altura
 
     @Override
@@ -76,21 +75,6 @@ public class AVLTree<E extends Comparable<E>> extends BSTree<E> {
     return fat;
     }
 
-    private NodeAVL rotateSL(NodeAVL node) {
-        NodeAVL rightChild = (NodeAVL) node.right;
-        node.right = rightChild.left;
-        rightChild.left = node;
-        return rightChild;
-    }
-
-    private NodeAVL rotateSR(NodeAVL node) {
-        NodeAVL leftChild = (NodeAVL) node.left;
-        node.left = leftChild.right;
-        leftChild.right = node;
-        return leftChild;
-    }
-
-
     private NodeAVL balanceToLeft(NodeAVL node){
     NodeAVL hijo = (NodeAVL)node.right;
     switch(hijo.bf) {
@@ -134,6 +118,20 @@ public class AVLTree<E extends Comparable<E>> extends BSTree<E> {
                 break;
         }
         return node;
+    }
+
+    private NodeAVL rotateSL(NodeAVL node) {
+        NodeAVL rightChild = (NodeAVL) node.right;
+        node.right = rightChild.left;
+        rightChild.left = node;
+        return rightChild;
+    }
+
+    private NodeAVL rotateSR(NodeAVL node) {
+        NodeAVL leftChild = (NodeAVL) node.left;
+        node.left = leftChild.right;
+        leftChild.right = node;
+        return leftChild;
     }
 
 }

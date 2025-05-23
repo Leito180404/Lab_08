@@ -9,22 +9,22 @@ public class TestAVL {
             avl.insert(30);
             avl.insert(20);
             avl.insert(10); // Desequilibrio
-            System.out.println("Después RSR: " + avl);
+            System.out.println("Despues RSR: " + avl);
 
             // Caso 2: Forzar rotacion RSL
             avl.insert(40);
             avl.insert(50); // Desequilibrio
-            System.out.println("Después RSL: " + avl);
+            System.out.println("Despues RSL: " + avl);
 
             // Caso 3: Forzar rotacion RDR
             avl.insert(25);
             avl.insert(22); // Desequilibrio
-            System.out.println("Después RDR: " + avl);
+            System.out.println("Despues RDR: " + avl);
 
             // Caso 4: Forzar rotacion RDL
             avl.insert(45);
             avl.insert(43); // Desequilibrio
-            System.out.println("Después RDL: " + avl);
+            System.out.println("Despues RDL: " + avl);
 
             // Otros casos
             avl.insert(35);

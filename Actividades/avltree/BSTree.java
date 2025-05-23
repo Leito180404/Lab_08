@@ -20,7 +20,7 @@ public class BSTree<E extends Comparable<E>> implements BinarySearchTree<E> {
         }
     }
 
-    private Node root;
+    public Node root;
     public void LinkedBST(){
         this.root = null;
     }

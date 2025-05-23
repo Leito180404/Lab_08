@@ -32,7 +32,7 @@ public class TestAVL {
             avl.insert(27);
             avl.insert(55);
 
-            System.out.println("Árbol AVL final: " + avl);
+            System.out.println("arbol AVL final: " + avl);
 
         } catch (ItemDuplicated e) {
             System.out.println("Error: " + e.getMessage());

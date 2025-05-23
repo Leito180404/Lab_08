@@ -180,5 +180,40 @@ public class BSTree<E extends Comparable<E>> implements BinarySearchTree<E> {
         }
         return node;
     }
+    protected Node findNode(E data) throws ItemNoFound {
+        return findNodeRec(root, data);
+    }
+
+    protected Node findNodeRec(Node node, E data) throws ItemNoFound {
+    if (node == null) {
+        throw new ItemNoFound("El dato " + data + " no se encontro en el arbol.");
+    }
+    int cmp = data.compareTo(node.data);
+    if (cmp == 0) {
+        return node;
+    } else if (cmp < 0) {
+        return findNodeRec(node.left, data);
+    } else {
+        return findNodeRec(node.right, data);
+    }
+}
+
+
+    public int height(E x) {
+        Node start;
+        try {
+            start = findNode(x);  // busca el nodo con dato x
+        } catch (ItemNoFound e) {
+            return -1; // si no existe devuelve -1
+        }
+        return heightRec(start);
+    }
+
+    private int heightRec(Node node) {
+        if (node == null) return -1;
+        int leftHeight = heightRec(node.left);
+        int rightHeight = heightRec(node.right);
+        return 1 + Math.max(leftHeight, rightHeight);
+    }
     
 }

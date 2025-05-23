@@ -120,19 +120,22 @@ public class AVLTree<E extends Comparable<E>> extends BSTree<E> {
         return node;
     }
 
-    private NodeAVL rotateSL(NodeAVL node) {
-        NodeAVL rightChild = (NodeAVL) node.right;
-        node.right = rightChild.left;
-        rightChild.left = node;
-        return rightChild;
+    private NodeAVL rotateSL(NodeAVL node){
+        NodeAVL p = (NodeAVL)node.right;
+        node.right = p.left;
+        p.left = node;
+        node = p;
+        return node;
     }
 
-    private NodeAVL rotateSR(NodeAVL node) {
-        NodeAVL leftChild = (NodeAVL) node.left;
-        node.left = leftChild.right;
-        leftChild.right = node;
-        return leftChild;
+    private NodeAVL rotateSR(NodeAVL node){
+        NodeAVL p = (NodeAVL)node.left;
+        node.left = p.right;
+        p.right = node;
+        node = p;
+        return node;
     }
+
 
 }
 

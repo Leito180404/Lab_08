@@ -149,7 +149,7 @@ public class AVLTree2<E extends Comparable<E>> extends BSTree<E> {
 
     protected NodeAVL delete(E x, NodeAVL node) throws ItemNoFound {
         if (node == null) {
-            throw new ItemNoFound(x + " no encontrado en el árbol");
+            throw new ItemNoFound(x + " no encontrado en el arbol");
         }
 
         int cmp = x.compareTo(node.data);

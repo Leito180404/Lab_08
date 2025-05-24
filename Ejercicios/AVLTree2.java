@@ -171,7 +171,6 @@ public class AVLTree2<E extends Comparable<E>> extends BSTree<E> {
                 this.height = true;
                 return (NodeAVL) node.left;
             } else {
-                // Dos hijos: reemplazar por sucesor (mínimo en subárbol derecho)
                 NodeAVL sucesor = (NodeAVL) findMinNode(node.right);
                 node.data = sucesor.data;
                 node.right = delete(sucesor.data, (NodeAVL) node.right);

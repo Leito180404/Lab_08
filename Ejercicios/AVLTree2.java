@@ -141,8 +141,7 @@ public class AVLTree2<E extends Comparable<E>> extends BSTree<E> {
         try {
             this.root = delete(x, (NodeAVL) this.root);
         } catch (ItemNoFound e) {
-            throw new RuntimeException(e); // o maneja el error aquí
-        }
+            throw new RuntimeException(e);}
     }
 
 
@@ -180,5 +179,31 @@ public class AVLTree2<E extends Comparable<E>> extends BSTree<E> {
             }
         }
         return node;
+    }
+
+    public void recorridoAmplitud() {
+        int h = height();
+        for (int i = 0; i < h; i++) {
+            recorridoNivel(root, i);
         }
+    }
+
+    private void recorridoNivel(Node node, int nivel) {
+        if (node == null) return;
+        if (nivel == 0) {
+            System.out.print(node.data + " ");
+        } else {
+            recorridoNivel(node.left, nivel - 1);
+            recorridoNivel(node.right, nivel - 1);
+        }
+    }
+
+    public int height() {
+        return heightRec(root);
+    }
+
+    private int heightRec(Node node) {
+        if (node == null) return 0;
+        return 1 + Math.max(heightRec(node.left), heightRec(node.right));
+    }
 }

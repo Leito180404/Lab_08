@@ -182,8 +182,8 @@ public class AVLTree2<E extends Comparable<E>> extends BSTree<E> {
         }
         return node;
     }
-    
-    //ejercicio 3
+
+    //ejercicio 3 y 4
     public void recorridoAmplitud() {
         int h = height();
         for (int i = 0; i < h; i++) {

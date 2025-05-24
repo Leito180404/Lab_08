@@ -135,33 +135,51 @@ public class AVLTree2<E extends Comparable<E>> extends BSTree<E> {
         node = p;
         return node;
     }
-
-@Override
-public void delete(E x) throws ItemNoFound {
-    this.height = false;
-    this.root = delete(x, (NodeAVL)this.root);
-}
-
-protected NodeAVL delete(E x, NodeAVL node) throws ItemNoFound {
-    if (node == null) {
-        throw new ItemNoFound(x + " no encontrado");
-    }
-
-    int cmp = x.compareTo(node.data);
-    if (cmp < 0) {
-        node.left = delete(x, (NodeAVL) node.left);
-        if (height) {
-            node = balanceToLeft(node);
+    @Override
+    public void delete(E x) {
+        this.height = false;
+        try {
+            this.root = delete(x, (NodeAVL) this.root);
+        } catch (ItemNoFound e) {
+            throw new RuntimeException(e); // o maneja el error aquí
         }
-    } else if (cmp > 0) {
-        node.right = delete(x, (NodeAVL) node.right);
-        if (height) {
-            node = balanceToRight(node);
+    }
+
+
+    protected NodeAVL delete(E x, NodeAVL node) throws ItemNoFound {
+        if (node == null) {
+            throw new ItemNoFound(x + " no encontrado en el árbol");
         }
-    } else {
 
-    }
-
-    return node;
-    }
+        int cmp = x.compareTo(node.data);
+        if (cmp < 0) {
+            node.left = delete(x, (NodeAVL) node.left);
+            if (this.height) {
+                node = balanceToLeft(node);
+            }
+        } else if (cmp > 0) {
+            node.right = delete(x, (NodeAVL) node.right);
+            if (this.height) {
+                node = balanceToRight(node);
+            }
+        } else {
+            // Nodo encontrado
+            if (node.left == null) {
+                this.height = true;
+                return (NodeAVL) node.right;
+            } else if (node.right == null) {
+                this.height = true;
+                return (NodeAVL) node.left;
+            } else {
+                // Dos hijos: reemplazar por sucesor (mínimo en subárbol derecho)
+                NodeAVL sucesor = (NodeAVL) findMinNode(node.right);
+                node.data = sucesor.data;
+                node.right = delete(sucesor.data, (NodeAVL) node.right);
+                if (this.height) {
+                    node = balanceToLeft(node);
+                }
+            }
+        }
+        return node;
+        }
 }

@@ -127,7 +127,7 @@ public class BSTree<E extends Comparable<E>> implements BinarySearchTree<E> {
         return root == null;
     }
     
-    private E findMinNode(Node node) throws ItemNoFound {
+    protected E findMinNode(Node node) throws ItemNoFound {
         if (node == null) {
             throw new ItemNoFound("El subarbol esta vacio.");
         }

@@ -221,5 +221,7 @@ public class AVLTree2<E extends Comparable<E>> extends BSTree<E> {
         System.out.print(node.data + " ");
         preordenRec(node.left);
         preordenRec(node.right);
-    }   
+    }
+    //ejercicio 6
+    
 }

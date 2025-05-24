@@ -208,4 +208,17 @@ public class AVLTree2<E extends Comparable<E>> extends BSTree<E> {
         if (node == null) return 0;
         return 1 + Math.max(heightRec(node.left), heightRec(node.right));
     }
+
+    //ejercicio 5
+    public void preorden() {
+        preordenRec(root);
+        System.out.println();
+    }
+
+    private void preordenRec(Node node) {
+        if (node == null) return;
+        System.out.print(node.data + " ");
+        preordenRec(node.left);
+        preordenRec(node.right);
+    }
 }

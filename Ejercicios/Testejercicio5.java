@@ -22,13 +22,13 @@ public class Testejercicio5 {
 
             // Prueba eliminación
             avl.delete(20);
-            System.out.print("Preorden después de eliminar 20: ");
+            System.out.print("Preorden despues de eliminar 20: ");
             avl.preorden();
 
         } catch (ItemDuplicated e) {
             System.out.println("Error al insertar: " + e.getMessage());
         } catch (RuntimeException e) {
-            System.out.println("Error durante eliminación: " + e.getMessage());
+            System.out.println("Error durante eliminacion: " + e.getMessage());
         }
     }
 }

@@ -135,6 +135,8 @@ public class AVLTree2<E extends Comparable<E>> extends BSTree<E> {
         node = p;
         return node;
     }
+
+    //ejercicio 2
     @Override
     public void delete(E x) {
         this.height = false;
@@ -180,7 +182,7 @@ public class AVLTree2<E extends Comparable<E>> extends BSTree<E> {
         }
         return node;
     }
-
+    //ejercicio 3
     public void recorridoAmplitud() {
         int h = height();
         for (int i = 0; i < h; i++) {

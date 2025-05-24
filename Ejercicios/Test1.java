@@ -1,4 +1,4 @@
-package Ejercicios;
+
 
 import avltree.AVLTree;
 import avltree.BSTree;

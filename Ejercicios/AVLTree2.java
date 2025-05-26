@@ -172,9 +172,10 @@ public class AVLTree2<E extends Comparable<E>> extends BSTree<E> {
                 this.height = true;
                 return (NodeAVL) node.left;
             } else {
-                NodeAVL sucesor = (NodeAVL) findMinNode(node.right);
-                node.data = sucesor.data;
-                node.right = delete(sucesor.data, (NodeAVL) node.right);
+                E sucesorData = findMinNode(node.right);
+                node.data = sucesorData;
+                node.right = delete(sucesorData, (NodeAVL) node.right);
+
                 if (this.height) {
                     node = balanceToLeft(node);
                 }

@@ -29,7 +29,7 @@ public class TestAVL {
             System.out.println("Insertando para RSL - Caso 2");
             tree.insert(65);
             tree.insert(80);
-            tree.insert(90); // Otra rotacion simple izquierda
+            tree.insert(91); // Otra rotacion simple izquierda
             System.out.println("Inorder: " + tree.toString());
 
             // Rotaciones dobles a la derecha (RDR) - 2 casos

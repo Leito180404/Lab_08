@@ -1,42 +1,66 @@
-import avltree.AVLTree;
 import Excepciones.ItemDuplicated;
+import avltree.AVLTree;
 
 public class TestAVL {
     public static void main(String[] args) {
-        AVLTree<Integer> avl = new AVLTree<>();
+        AVLTree<Integer> tree = new AVLTree<>();
+
         try {
-            // Caso 1: Forzar rotacion RSR
-            avl.insert(30);
-            avl.insert(20);
-            avl.insert(10); // Desequilibrio
-            System.out.println("Despues RSR: " + avl);
+            // Rotaciones simples a la derecha (RSR) - 2 casos
+            System.out.println("Insertando para RSR - Caso 1");
+            tree.insert(30);
+            tree.insert(20);
+            tree.insert(10);
+            System.out.println("Inorder: " + tree.toString());
 
-            // Caso 2: Forzar rotacion RSL
-            avl.insert(40);
-            avl.insert(50); // Desequilibrio
-            System.out.println("Despues RSL: " + avl);
+            System.out.println("Insertando para RSR - Caso 2");
+            tree.insert(40);
+            tree.insert(35);
+            tree.insert(25); // Otra rotacion simple derecha
+            System.out.println("Inorder: " + tree.toString());
 
-            // Caso 3: Forzar rotacion RDR
-            avl.insert(25);
-            avl.insert(22); // Desequilibrio
-            System.out.println("Despues RDR: " + avl);
+            // Rotaciones simples a la izquierda (RSL) - 2 casos
+            System.out.println("Insertando para RSL - Caso 1");
+            tree.insert(50);
+            tree.insert(60);
+            tree.insert(70); // Aquí rotacion simple izquierda
+            System.out.println("Inorder: " + tree.toString());
 
-            // Caso 4: Forzar rotacion RDL
-            avl.insert(45);
-            avl.insert(43); // Desequilibrio
-            System.out.println("Despues RDL: " + avl);
+            System.out.println("Insertando para RSL - Caso 2");
+            tree.insert(65);
+            tree.insert(80);
+            tree.insert(90); // Otra rotacion simple izquierda
+            System.out.println("Inorder: " + tree.toString());
 
-            // Otros casos
-            avl.insert(35);
-            avl.insert(15);
-            avl.insert(27);
-            avl.insert(55);
+            // Rotaciones dobles a la derecha (RDR) - 2 casos
+            System.out.println("Insertando para RDR - Caso 1");
+            tree.insert(15);
+            tree.insert(12);
+            tree.insert(18); // Aquí rotacion doble derecha
+            System.out.println("Inorder: " + tree.toString());
 
-            System.out.println("arbol AVL final: " + avl);
+            System.out.println("Insertando para RDR - Caso 2");
+            tree.insert(17);
+            tree.insert(14);
+            tree.insert(19); // Otra rotacion doble derecha
+            System.out.println("Inorder: " + tree.toString());
+
+            // Rotaciones dobles a la izquierda (RDL) - 2 casos
+            System.out.println("Insertando para RDL - Caso 1");
+            tree.insert(75);
+            tree.insert(85);
+            tree.insert(82); // Aquí rotacion doble izquierda
+            System.out.println("Inorder: " + tree.toString());
+
+            System.out.println("Insertando para RDL - Caso 2");
+            tree.insert(78);
+            tree.insert(90);
+            tree.insert(83); // Otra rotacion doble izquierda
+            System.out.println("Inorder: " + tree.toString());
 
         } catch (ItemDuplicated e) {
             System.out.println("Error: " + e.getMessage());
-            }
-
-    }}
+        }
+    }
+}
 
